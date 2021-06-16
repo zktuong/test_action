@@ -40,10 +40,13 @@ jobs:
       uses: actions/setup-python@v2
 
     - id: R
-      name: check R version
+      name: Check R version
       run: |
         R --version > VERSION        
         echo "##[set-output name=version;]$(head -1 VERSION | awk '{print $3}')"
+        echo "##[set-output name=mainbiocversion;]$(Rscript -e 'cat(unlist(tools:::.BioC_version_associated_with_R_version()))' | awk '{print $1}')"
+        echo "##[set-output name=subbiocversion;]$(Rscript -e 'cat(unlist(tools:::.BioC_version_associated_with_R_version()))' | awk '{print $2}')"
+        echo "##[set-output name=biocversion;]$(Rscript -e 'cat(as.character(tools:::.BioC_version_associated_with_R_version()))' | awk '{print $1}')"
       shell: bash -l {0}
 
     - name: Set up R
