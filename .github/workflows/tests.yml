@@ -39,9 +39,9 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
     
-    - name: test something quick
+    - name: test something quick v2
       run: |
-        r --version
+        R --version
 
     - name: Install ubuntu system dependencies
       if: matrix.config.os == 'ubuntu-latest'
@@ -57,7 +57,7 @@ jobs:
 
     - name: test something quick v2
       run: |
-        r --version
+        R --version
 
 
     - name: Cache conda
