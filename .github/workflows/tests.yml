@@ -38,7 +38,11 @@ jobs:
     
     - name: Set up Python
       uses: actions/setup-python@v2
-      
+    
+    - name: test something quick
+      run: |
+        r --version
+
     - name: Install ubuntu system dependencies
       if: matrix.config.os == 'ubuntu-latest'
       run: |
@@ -50,6 +54,12 @@ jobs:
       if: matrix.config.os == 'macos-latest'
       run: |
           brew install cairo pkg-config autoconf automake libtool
+
+    - name: test something quick v2
+      run: |
+        r --version
+
+
     - name: Cache conda
       uses: actions/cache@v1
       env:
