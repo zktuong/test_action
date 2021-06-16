@@ -39,13 +39,20 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
 
+    - id: R
+      name: check R version
+      run: |
+        R --version > VERSION        
+        echo "##[set-output name=version;]$(head -1 VERSION | awk '{print $3}')"
+      shell: bash -l {0}
+
     - name: Set up R
       uses: r-lib/actions/setup-r@v1
       with:
-        r-version: '4.1.0'
+        r-version: ${{ steps.version.outputs.version}}
 
     - name: Setup r-lib/remotes      
-      run:
+      run: |
         install.packages('remotes')
       shell: Rscript {0}
 
