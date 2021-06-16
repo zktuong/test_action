@@ -3,8 +3,7 @@ name: tests
 on:
   push:
     branches:
-      - "master"
-      - "devel"
+      - "main"
 
 env:
   cache-version: 'cache-v1'
