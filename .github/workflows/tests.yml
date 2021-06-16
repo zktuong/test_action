@@ -106,6 +106,13 @@ jobs:
         python-version: ${{ matrix.config.python-version }}
         environment-file: environment.yml
         use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
+    
+    - name: install R dependencies
+      run: |
+        install.packages(c('RCurl','XML'))
+        remotes::install_cran("BiocManager")
+        BiocManager::install(version = ${{ steps.R.outputs.biocversion}}, ask = FALSE)        
+      shell: Rscript {0}
 
     - name: Test with pytest
       run: |
