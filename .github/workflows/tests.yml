@@ -39,6 +39,11 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
 
+    - name: Setup r-lib/remotes      
+      run:
+        install.packages('remotes')
+      shell: Rscript {0}
+
     - name: Install ubuntu system dependencies
       if: matrix.config.os == 'ubuntu-latest'
       run: |
@@ -50,7 +55,7 @@ jobs:
       if: matrix.config.os == 'macos-latest'
       run: |
           brew install cairo pkg-config autoconf automake libtool
-          
+
     - name: Cache conda
       uses: actions/cache@v1
       env:
