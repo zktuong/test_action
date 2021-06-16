@@ -110,7 +110,16 @@ jobs:
         environment-file: environment.yml
         use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
     
-    - name: install R dependencies
+    - name: Install ubuntu R dependencies
+      if: matrix.config.os == 'ubuntu-latest'
+      run: |
+        install.packages(c('RCurl','XML'))
+        remotes::install_cran("BiocManager")
+        BiocManager::install(version = ${{ steps.R.outputs.biocversion}}, ask = FALSE)        
+      shell: Rscript {0}
+
+    - name: Install macOS R dependencies
+      if: matrix.config.os != 'ubuntu-latest'
       run: |
         options(install.packages.compile.from.source = "never")
         install.packages(c('RCurl','XML'))
