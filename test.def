@@ -1,0 +1,9 @@
+Bootstrap: docker
+
+From: mambaorg/micromamba
+
+%files    
+    environment.yml /environment.yml
+
+%post
+    micromamba create --name sc-dandelion-container --file environment.yml
