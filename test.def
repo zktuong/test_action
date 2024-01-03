@@ -23,4 +23,5 @@ From: ubuntu:latest
     python --version
     ls /opt/conda/envs/sc-dandelion-container/share/igblast
     which igblastn
-    igblastn -help
+    # igblastn -help
+    which makeblastdb
