@@ -8,4 +8,5 @@ From: mambaorg/micromamba
 
 %post
     micromamba env create --name sc-dandelion-container --file environment.yml
+    eval "$(micromamba shell hook --shell .)"
     micromamba activate sc-dandelion-container
