@@ -1,18 +1,25 @@
 Bootstrap: docker
 
-From: mambaorg/micromamba:jammy
+From: ubuntu:latest
 
 %files    
     environment.yml
-    .mambarc
 
 %post
-    micromamba install --yes --name base --file environment.yml
-    echo "echo $PATH=/opt/conda/bin:%PATH" | tee -a $SINGULARITY_ENVIRONMENT
+    # set up miniforge
+    sudo apt-get --allow-releaseinfo-change update && sudo apt-get install -y curl
+    curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+    bash Miniforge3-$(uname)-$(uname -m).sh -b -p "/opt/conda"
+    rm Miniforge3-$(uname)-$(uname -m).sh
+    # . /opt/conda/etc/profile.d/conda.sh
+    . /opt/conda/etc/profile.d/mamba.sh
+    mamba env update --name sc-dandelion-container -f environment.yml
+    # echo ". /opt/conda/etc/profile.d/conda.sh" | tee -a $SINGULARITY_ENVIRONMENT
+    echo ". /opt/conda/etc/profile.d/mamba.sh" | tee -a $SINGULARITY_ENVIRONMENT
+    echo "conda activate sc-dandelion-container" | tee -a $SINGULARITY_ENVIRONMENT
 
 %test
-    micromamba list --name base
-    /opt/conda/bin/python --version
+    mamba list
+    python --version
     ls /opt/conda/share/igblast
-    echo $PATH
     igblastn --help

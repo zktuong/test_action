@@ -15,14 +15,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Singularity install with defaults
         uses: singularityhub/install-singularity@main
-      - name: Extract repository location
-        shell: bash
-        run: |
-          echo "location=$(echo "      - git+https://www.github.com/${GITHUB_REPOSITORY}@${GITHUB_REF#refs/heads/}")" >> $GITHUB_OUTPUT
-        id: extract_location
-
       - name: Build Container
         run: |
-          # echo '${{ steps.extract_location.outputs.location }}' >> environment_test.yml
           cat environment.yml
           sudo -E singularity build test.sif test.def

@@ -1,4 +1,4 @@
-name: test
+name: sc-dandelion-container
 channels:
   - conda-forge
   - bioconda
@@ -7,4 +7,3 @@ channels:
 dependencies:
   - python=3.11
   - igblast
-  - pip
