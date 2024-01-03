@@ -8,8 +8,7 @@ From: mambaorg/micromamba:jammy
 
 %post
     micromamba env create --name sc-dandelion-container --file environment.yml
-    . $MAMBA_ROOT_PREFIX/etc/profile.d/mamba.sh
-    micromamba activate sc-dandelion-container
+    /bin/micromamba shell hook -s bash
     echo "micromamba activate sc-dandelion-container" | tee -a $SINGULARITY_ENVIRONMENT
 
 %test
