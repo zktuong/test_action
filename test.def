@@ -10,4 +10,6 @@ From: mambaorg/micromamba:jammy
     micromamba install --yes --name base --file environment.yml
 
 %test
-    micromamba list
+    micromamba list --name base
+    which python
+    python --version
