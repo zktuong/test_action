@@ -22,4 +22,5 @@ From: ubuntu:latest
     mamba list
     python --version
     ls /opt/conda/envs/sc-dandelion-container/share/igblast
+    which igblastn
     igblastn -help
