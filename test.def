@@ -7,5 +7,5 @@ From: mambaorg/micromamba
     .mambarc
 
 %post
-    ls -l
-    micromamba install --yes --name base --file /environment.yml
+    micromamba env create --name sc-dandelion-container --file environment.yml
+    micromamba activate sc-dandelion-container
