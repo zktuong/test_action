@@ -3,8 +3,8 @@ Bootstrap: docker
 From: mambaorg/micromamba
 
 %files    
-    environment.yml /environment.yml
-    .mambarc /root/.mambarc
+    environment.yml
+    .mambarc
 
 %post
     ls -l
