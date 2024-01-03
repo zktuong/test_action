@@ -4,6 +4,7 @@ From: mambaorg/micromamba
 
 %files    
     environment.yml /environment.yml
+    .mambarc /root/.mambarc
 
 %post
     micromamba create --name base --file environment.yml
