@@ -8,5 +8,5 @@ From: mambaorg/micromamba
 
 %post
     micromamba env create --name sc-dandelion-container --file environment.yml
-    eval "$(micromamba shell hook --shell .)"
+    . /opt/conda/etc/profile.d/conda.sh
     micromamba activate sc-dandelion-container
