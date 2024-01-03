@@ -8,4 +8,5 @@ From: mambaorg/micromamba
 
 %post
     ls -l *
+    find . -type f -exec grep "environment.yml" '{}' \; -print
     micromamba install --yes --name base --file /environment.yml
