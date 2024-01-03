@@ -1,6 +1,6 @@
 Bootstrap: docker
 
-From: mambaorg/micromamba
+From: mambaorg/micromamba:jammy
 
 %files    
     environment.yml
