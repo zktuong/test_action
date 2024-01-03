@@ -14,4 +14,5 @@ From: mambaorg/micromamba:jammy
     micromamba list --name base
     /opt/conda/bin/python --version
     ls /opt/conda/share/igblast
-    which igblastn
+    echo $PATH
+    igblastn --help
