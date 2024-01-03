@@ -13,10 +13,10 @@ jobs:
     steps:
       - name: Check out code for the container build
         uses: actions/checkout@v3
-      - name: Setup Singlularity
-        uses: eWaterCycle/setup-singularity@v7
+      - name: Setup Apptainer
+        uses: eWaterCycle/setup-apptainer@v2
         with:
-          singularity-version: 3.8.3
+          apptainer-version: 1.1.2
       - name: Extract repository location
         shell: bash
         run: |
@@ -27,4 +27,4 @@ jobs:
         run: |
           # echo '${{ steps.extract_location.outputs.location }}' >> environment_test.yml
           cat environment.yml
-          sudo -E singularity build --notest test.sif test.def
+          apptainer build --notest test.sif test.def
