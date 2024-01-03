@@ -7,7 +7,7 @@ From: mambaorg/micromamba:jammy
     .mambarc
 
 %post
-    micromamba env create --name base --file environment.yml
+    micromamba install --yes --name base --file environment.yml
 
 %test
     micromamba list
