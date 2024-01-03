@@ -22,4 +22,4 @@ From: ubuntu:latest
     mamba list
     python --version
     ls /opt/conda/envs/sc-dandelion-container/share/igblast
-    igblastn --help
+    igblastn -help
