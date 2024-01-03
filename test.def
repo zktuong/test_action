@@ -7,9 +7,10 @@ From: mambaorg/micromamba:jammy
     .mambarc
 
 %post
+    echo $PATH=/opt/conda/bin:%PATH
     micromamba install --yes --name base --file environment.yml
 
 %test
     micromamba list --name base
-    which python
-    python --version
+    /opt/conda/bin/python --version
+    which igblastn
