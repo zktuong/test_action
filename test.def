@@ -13,4 +13,4 @@ From: mambaorg/micromamba
         unzip \
         libgomp1 \
         openjdk-17-jdk
-    micromamba micromamba install --yes --name base --file environment.yml
+    micromamba install --yes --name base --file environment.yml
