@@ -25,4 +25,4 @@ jobs:
         run: |
           # echo '${{ steps.extract_location.outputs.location }}' >> environment_test.yml
           cat environment.yml
-          sudo -E singularity build --notest test.sif test.def
+          sudo -E singularity build test.sif test.def
