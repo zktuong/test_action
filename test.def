@@ -7,10 +7,5 @@ From: mambaorg/micromamba
     .mambarc /root/.mambarc
 
 %post
-    apt-get --allow-releaseinfo-change update && apt-get install -y \
-        procps \
-        curl \
-        unzip \
-        libgomp1 \
-        openjdk-17-jdk
-    micromamba install --yes --name base --file environment.yml
+    ls
+    micromamba install --yes --name base --file /environment.yml
