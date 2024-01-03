@@ -7,6 +7,7 @@ From: mambaorg/micromamba
     .mambarc
 
 %post
-    micromamba env create --name sc-dandelion-container --file environment.yml
-    . /opt/conda/etc/profile.d/conda.sh
-    micromamba activate sc-dandelion-container
+    ls -l /opt/*
+    # micromamba env create --name sc-dandelion-container --file environment.yml
+    # . /opt/conda/etc/profile.d/conda.sh
+    # micromamba activate sc-dandelion-container
