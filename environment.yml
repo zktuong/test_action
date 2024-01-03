@@ -1,12 +1,12 @@
-name: dandelion
+name: test
 channels:
-- conda-forge
-- bioconda
-- anaconda
-- defaults
+  - conda-forge
+  - bioconda
+  - anaconda
+  - defaults
 dependencies:
-- pytest
-- pip
-- pip:
-  - -r file:requirements_dev.txt
-  - rpy2>=3.4.0
+  - python=3.11
+  - pandas
+  - numpy
+  - pytest
+  - pip
