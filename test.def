@@ -7,5 +7,5 @@ From: mambaorg/micromamba
     .mambarc /root/.mambarc
 
 %post
-    ls *
+    ls -l *
     micromamba install --yes --name base --file /environment.yml
