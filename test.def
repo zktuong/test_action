@@ -8,7 +8,6 @@ From: mambaorg/micromamba:jammy
 
 %post
     micromamba env create --name sc-dandelion-container --file environment.yml
-    echo "micromamba activate sc-dandelion-container" | tee -a $SINGULARITY_ENVIRONMENT
 
 %test
     micromamba list
