@@ -8,9 +8,6 @@ From: mambaorg/micromamba:jammy
 
 %post
     micromamba env create --name sc-dandelion-container --file environment.yml
-    /bin/micromamba shell hook -s bash
-    # Initialize the shell
-    eval "$(/bin/micromamba shell hook -s bash)"
     echo "micromamba activate sc-dandelion-container" | tee -a $SINGULARITY_ENVIRONMENT
 
 %test
