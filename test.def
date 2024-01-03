@@ -6,4 +6,4 @@ From: mambaorg/micromamba
     environment.yml /environment.yml
 
 %post
-    micromamba create --name sc-dandelion-container --file environment.yml
+    micromamba create --name base --file environment.yml
