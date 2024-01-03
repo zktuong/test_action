@@ -7,7 +7,11 @@ From: mambaorg/micromamba
     .mambarc
 
 %post
-    ls -lR /opt/conda/
-    # micromamba env create --name sc-dandelion-container --file environment.yml
-    # . /opt/conda/etc/profile.d/conda.sh
+    micromamba env create --name sc-dandelion-container --file environment.yml
+    eval "$(micromamba shell hook --shell=$$)"
     # micromamba activate sc-dandelion-container
+    echo "micromamba activate sc-dandelion-container" | tee -a $SINGULARITY_ENVIRONMENT
+
+%test
+    conda list
+    micromamba activate sc-dandelion-container
